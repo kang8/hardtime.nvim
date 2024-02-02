@@ -168,6 +168,10 @@ function M.setup(user_config)
       last_keys = last_keys .. key
       last_key = key
 
+      if string.sub(last_keys, #last_keys - 2, #last_keys) == 'xdl' then
+         last_keys = string.sub(last_keys, 1, #last_keys - 2)
+      end
+
       if not config.hint or not M.is_plugin_enabled or should_disable() then
          return
       end
